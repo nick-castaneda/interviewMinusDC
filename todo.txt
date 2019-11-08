@@ -1,0 +1,4 @@
+- update react
+- update java libraries
+- add db test route to java
+- cleanup java
