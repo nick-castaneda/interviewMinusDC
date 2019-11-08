@@ -1,32 +1,19 @@
 version: '2'
 services:
   data:
-    build: data/.
+    build:
   mysql:
     image: mysql
     environment:
-     - MYSQL_ROOT_PASSWORD=root
-     - MYSQL_DATABASE=fff-interview
     ports:
-      - "3306:3306"
     volumes:
-      - ./data:/docker-entrypoint-initdb.d
     volumes_from:
-      - data
   react:
     image: nginx
-    build: 
-      context: ./react-app
-      dockerfile: Dockerfile
-    ports: 
-      - "80:3000"
+    build:
+    ports:
     volumes:
-     - ./react-app:/var/www/html
   api:
     build:
-      context: ./api
-      dockerfile: config/Dockerfile
     ports:
-      - "5000:5000"
     volumes:
-      - ./api/src:/lib/src
